@@ -6,7 +6,7 @@ curl https://bisq.network/pubkey/E222AA02.asc | gpg --import
 
 mv Bisq-64bit-1.9.18.deb /home/amnesia/Persistent/bisq/
 
-$INSTALL_FILE="/home/amnesia/Persistent/bisq/install-bisq.sh"
+INSTALL_FILE="/home/amnesia/Persistent/bisq/install-bisq.sh"
 touch $INSTALL_FILE
 chmod +x $INSTALL_FILE
 
@@ -16,7 +16,7 @@ BisqInstaller=/home/amnesia/Persistent/bisq/Bisq-64bit-1.9.18.deb
 DataDirectory=/home/amnesia/Persistent/bisq/Bisq
 
 echo "Install Bisq ..."
-dpkg -i $BisqInstaller
+dpkg -i \$BisqInstaller
 echo "Change access rights of /var/run/tor/control.authcookie ..."
 chmod o+r /var/run/tor/control.authcookie
 echo "Create /etc/onion-grater.d/bisq.yml ..."
@@ -81,18 +81,18 @@ systemctl restart onion-grater.service
 echo "Edit Bisq executable file ..."
 sed -i 's+Exec=/opt/bisq/bin/Bisq+Exec=/opt/bisq/bin/Bisq --torControlPort 951 --torControlCookieFile=/var/run/tor/control.authcookie --torControlUseSafeCookieAuth+' /usr/share/applications/bisq-Bisq.desktop
 echo "Redirect user data to Tails Persistent Storage ..."
-ln -s $DataDirectory /home/amnesia/.local/share/Bisq
+ln -s \$DataDirectory /home/amnesia/.local/share/Bisq
 echo "Installation complete."
 EOF
 
-$FILE="/live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/InstallBisq.desktop"
+FILE="/live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/InstallBisq.desktop"
 cat <<EOF >$FILE
 [Desktop Entry]
 Name=Install Bisq
 Comment=Re-install Bisq after startup
-Exec=sudo /home/amnesia/Persistent/bisq/install-bisq.sh
+Exec=sudo -i sh /home/amnesia/Persistent/bisq/install-bisq.sh
 Icon=
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Unknown
 MimeType=application/psbt;application/bitcoin-transaction;x-scheme-handler/bitcoin;x-scheme-handler/auth47;x-scheme-handler/lightning
