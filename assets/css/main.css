@@ -1,5 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
 
 /*
 	Spectral by HTML5 UP
@@ -103,7 +104,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #fff;
-		font-family: "Open Sans", Helvetica, sans-serif;
+		font-family: "Funnel Display", Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -2078,7 +2079,7 @@ input, select, textarea {
 			}
 
 		.icon.style1 {
-			color: #00ffcc;
+			color: #61c99a;
 		}
 
 		.icon.style2 {
@@ -2087,6 +2088,10 @@ input, select, textarea {
 
 		.icon.style3 {
 			color: #76ddff;
+		}
+
+		.icon.white {
+			color: white
 		}
 
 /* Image */
@@ -2604,7 +2609,7 @@ input, select, textarea {
 
 			.features li:before {
 				display: block;
-				color: #00ffcc;
+				color: #61c99a;
 				position: absolute;
 				left: 1.75em;
 				top: 2.75em;
@@ -3583,7 +3588,6 @@ input, select, textarea {
 		position: relative;
 		text-align: center;
 	}
-
 		#banner h2 {
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
@@ -3599,6 +3603,26 @@ input, select, textarea {
 			padding: 0.35em 1em;
 			position: relative;
 			z-index: 1;
+		}
+
+		#banner img {
+			-moz-transform: scale(1);
+			-webkit-transform: scale(1);
+			-ms-transform: scale(1);
+			transform: scale(1);
+			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+			display: inline-block;
+			font-size: 1.75em;
+			opacity: 1;
+			padding: 0.35em 1em;
+			position: relative;
+			top: -200px;
+			left: -300px;
+			z-index: 1;
+			height: 10vh;
 		}
 
 			#banner h2:before, #banner h2:after {
