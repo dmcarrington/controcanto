@@ -1899,16 +1899,26 @@
 
 	body.landing {
 		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../../images/logo4.png")'));
+			/*@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../../images/controcanto.mp4")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: cover;*/
+			position: fixed;
+			top: 0;
 			padding-top: 0;
 		}
 
 		#footer {
 			background-color: darken(transparentize(_palette(bg), 0.1), 8);
+		}
+
+		#myVideo {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
 		}
 	}
 
@@ -1920,7 +1930,7 @@
 
 			#banner,
 			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../../images/logo4.png")'));
+				/*@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../../images/controcanto.mp4")'));*/
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
@@ -1931,3 +1941,5 @@
 			}
 		}
 	}
+
+	
