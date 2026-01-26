@@ -80,4 +80,74 @@
 
 		}
 
+	// Carousel.
+		var $carousel = $('.carousel-container'),
+			$track = $('.carousel-track'),
+			$slides = $('.carousel-slide'),
+			$prevBtn = $('.carousel-prev'),
+			$nextBtn = $('.carousel-next'),
+			$indicators = $('.carousel-indicator'),
+			currentSlide = 0,
+			slideCount = $slides.length,
+			autoplayInterval = null,
+			autoplayDelay = 10000;
+
+		function goToSlide(index) {
+			var maxSlide = slideCount - 1;
+			if (index < 0) index = maxSlide;
+			if (index > maxSlide) index = 0;
+			currentSlide = index;
+			// Calculate offset: each slide is ~50% width plus gap
+			var slideWidth = $slides.first().outerWidth(true);
+			var offset = currentSlide * slideWidth;
+			$track.css('transform', 'translateX(-' + offset + 'px)');
+			$indicators.removeClass('active');
+			$indicators.eq(currentSlide).addClass('active');
+		}
+
+		function nextSlide() {
+			goToSlide(currentSlide + 1);
+		}
+
+		function prevSlide() {
+			goToSlide(currentSlide - 1);
+		}
+
+		function startAutoplay() {
+			stopAutoplay();
+			autoplayInterval = setInterval(nextSlide, autoplayDelay);
+		}
+
+		function stopAutoplay() {
+			if (autoplayInterval) {
+				clearInterval(autoplayInterval);
+				autoplayInterval = null;
+			}
+		}
+
+		if ($carousel.length > 0) {
+			$nextBtn.on('click', function() {
+				nextSlide();
+				startAutoplay();
+			});
+
+			$prevBtn.on('click', function() {
+				prevSlide();
+				startAutoplay();
+			});
+
+			$indicators.on('click', function() {
+				var slideIndex = $(this).data('slide');
+				goToSlide(slideIndex);
+				startAutoplay();
+			});
+
+			// Start autoplay
+			startAutoplay();
+
+			// Pause on hover
+			$carousel.on('mouseenter', stopAutoplay);
+			$carousel.on('mouseleave', startAutoplay);
+		}
+
 })(jQuery);

@@ -2709,7 +2709,7 @@ input, select, textarea {
 			flex-direction: row-reverse;
 		}
 
-		.spotlight:nth-child(1) {
+		/*.spotlight:nth-child(1) {
 			background-color: rgba(0, 0, 0, 0.075);
 		}
 
@@ -2747,7 +2747,7 @@ input, select, textarea {
 
 		.spotlight:nth-child(10) {
 			background-color: rgba(0, 0, 0, 0.75);
-		}
+		}*/
 
 		@media screen and (max-width: 1280px) {
 
@@ -2987,6 +2987,12 @@ input, select, textarea {
 
 		.wrapper.style2 {
 			background-color: #2e3842;
+		}
+
+		#one header.major {
+			background-color: rgba(0, 0, 0, 0.7);
+			margin: 50px;
+			padding: 2em;
 		}
 
 		.wrapper.style3 {
@@ -4036,3 +4042,194 @@ input, select, textarea {
 			min-width: 100%;
 			min-height: 100%;
 		}
+
+/* Carousel */
+	.section-number {
+		float: left;
+	}
+
+	html {
+		scroll-snap-type: y mandatory;
+	}
+
+	#banner {
+		scroll-snap-align: start;
+	}
+
+	.carousel-container {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+	}
+
+	#cta {
+		scroll-snap-align: start;
+	}
+
+	#footer {
+		scroll-snap-align: start;
+	}
+
+	.carousel-track {
+		display: flex;
+		height: 100%;
+		transition: transform 0.5s ease-in-out;
+		padding: 2em;
+		padding-right: 50vw;
+		gap: 2em;
+		align-items: center;
+	}
+
+	.carousel-slide {
+		min-width: 50vw;
+		height: 80vh;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 20px;
+		background: #2e3842;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.carousel-slide .spotlight {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.carousel-slide .spotlight .content {
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		padding: 0;
+		position: static;
+	}
+
+	.carousel-slide .card-header {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+		padding: 2em;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.carousel-slide .card-header .section-number {
+		width: 240px;
+		height: auto;
+	}
+
+	.carousel-slide .card-header h2 {
+		margin: 0;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.carousel-slide .content > p {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		padding: 0 2em;
+		text-align: left;
+		box-sizing: border-box;
+	}
+
+	.carousel-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(0, 0, 0, 0.5);
+		color: #fff;
+		border: none;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		cursor: pointer;
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.3s ease, opacity 0.3s ease;
+	}
+
+	.carousel-arrow:hover {
+		background: rgba(33, 178, 166, 0.8);
+	}
+
+	.carousel-prev {
+		left: 20px;
+	}
+
+	.carousel-next {
+		right: 20px;
+	}
+
+	.carousel-indicators {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 10px;
+		z-index: 10;
+	}
+
+	.carousel-indicator {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.5);
+		border: none;
+		cursor: pointer;
+		transition: background 0.3s ease;
+	}
+
+	.carousel-indicator:hover,
+	.carousel-indicator.active {
+		background: #21b2a6;
+	}
+
+	@media screen and (max-width: 736px) {
+		.carousel-track {
+			padding: 1em;
+			padding-right: 15vw;
+			gap: 1em;
+		}
+
+		.carousel-slide {
+			min-width: calc(85% - 1em);
+			height: 70vh;
+			border-radius: 15px;
+		}
+
+		.carousel-arrow {
+			width: 40px;
+			height: 40px;
+		}
+
+		.carousel-prev {
+			left: 10px;
+		}
+
+		.carousel-next {
+			right: 10px;
+		}
+
+		.carousel-indicators {
+			bottom: 10px;
+		}
+
+		.carousel-indicator {
+			width: 10px;
+			height: 10px;
+		}
+	}
