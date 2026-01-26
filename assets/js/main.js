@@ -88,9 +88,7 @@
 			$nextBtn = $('.carousel-next'),
 			$indicators = $('.carousel-indicator'),
 			currentSlide = 0,
-			slideCount = $slides.length,
-			autoplayInterval = null,
-			autoplayDelay = 10000;
+			slideCount = $slides.length;
 
 		function goToSlide(index) {
 			var maxSlide = slideCount - 1;
@@ -113,41 +111,83 @@
 			goToSlide(currentSlide - 1);
 		}
 
-		function startAutoplay() {
-			stopAutoplay();
-			autoplayInterval = setInterval(nextSlide, autoplayDelay);
-		}
-
-		function stopAutoplay() {
-			if (autoplayInterval) {
-				clearInterval(autoplayInterval);
-				autoplayInterval = null;
-			}
-		}
-
 		if ($carousel.length > 0) {
 			$nextBtn.on('click', function() {
 				nextSlide();
-				startAutoplay();
 			});
 
 			$prevBtn.on('click', function() {
 				prevSlide();
-				startAutoplay();
 			});
 
 			$indicators.on('click', function() {
 				var slideIndex = $(this).data('slide');
 				goToSlide(slideIndex);
-				startAutoplay();
 			});
+		}
 
-			// Start autoplay
-			startAutoplay();
+	// Booking Form.
+		var $bookingForm = $('#booking-form'),
+			$locationSelect = $('#booking-location');
 
-			// Pause on hover
-			$carousel.on('mouseenter', stopAutoplay);
-			$carousel.on('mouseleave', startAutoplay);
+		// Load locations from JSON
+		if ($locationSelect.length > 0) {
+			$.getJSON('data/locations.json', function(data) {
+				if (data.locations && data.locations.length > 0) {
+					data.locations.forEach(function(location) {
+						$locationSelect.append(
+							$('<option>', {
+								value: location,
+								text: location
+							})
+						);
+					});
+				}
+			}).fail(function() {
+				console.error('Failed to load locations');
+			});
+		}
+
+		// Handle form submission
+		if ($bookingForm.length > 0) {
+			$bookingForm.on('submit', function(e) {
+				e.preventDefault();
+
+				var name = $('#booking-name').val().trim();
+				var email = $('#booking-email').val().trim();
+				var phone = $('#booking-phone').val().trim();
+				var date = $('#booking-date').val();
+				var location = $('#booking-location').val();
+
+				// Validate email format
+				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailRegex.test(email)) {
+					alert('Please enter a valid email address.');
+					$('#booking-email').focus();
+					return;
+				}
+
+				// Format date for display
+				var formattedDate = date ? new Date(date).toLocaleDateString('en-GB', {
+					weekday: 'long',
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric'
+				}) : 'Not specified';
+
+				// Build email body
+				var subject = encodeURIComponent('Booking Request from ' + name);
+				var body = encodeURIComponent(
+					'Name: ' + name + '\n' +
+					'Email: ' + email + '\n' +
+					'Phone: ' + phone + '\n' +
+					'Preferred Date: ' + formattedDate + '\n' +
+					'Location: ' + location
+				);
+
+				// Open mailto link
+				window.location.href = 'mailto:controcanto-dev@proton.me?subject=' + subject + '&body=' + body;
+			});
 		}
 
 })(jQuery);
