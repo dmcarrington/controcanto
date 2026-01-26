@@ -155,7 +155,7 @@
 
 				var name = $('#booking-name').val().trim();
 				var email = $('#booking-email').val().trim();
-				var phone = $('#booking-phone').val().trim();
+				//var phone = $('#booking-phone').val().trim();
 				var date = $('#booking-date').val();
 				var location = $('#booking-location').val();
 
@@ -180,13 +180,13 @@
 				var body = encodeURIComponent(
 					'Name: ' + name + '\n' +
 					'Email: ' + email + '\n' +
-					'Phone: ' + phone + '\n' +
+					//'Phone: ' + phone + '\n' +
 					'Preferred Date: ' + formattedDate + '\n' +
 					'Location: ' + location
 				);
 
 				// Open mailto link
-				window.location.href = 'mailto:controcanto-dev@proton.me?subject=' + subject + '&body=' + body;
+				window.location.href = 'mailto:controcanto@proton.me?subject=' + subject + '&body=' + body;
 			});
 		}
 
