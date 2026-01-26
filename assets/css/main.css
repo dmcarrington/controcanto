@@ -4063,6 +4063,7 @@ input, select, textarea {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
 		/*scroll-snap-align: start;
 		scroll-snap-stop: always;*/
 	}
@@ -4077,7 +4078,6 @@ input, select, textarea {
 
 	.carousel-track {
 		display: flex;
-		overflow: hidden;
 		transition: transform 0.5s ease-in-out;
 		padding: 2em;
 		padding-left: 80px;
