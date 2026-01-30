@@ -126,6 +126,17 @@
 			});
 		}
 
+	// EmailJS Configuration
+		// TODO: Replace these with your actual EmailJS credentials
+		var EMAILJS_PUBLIC_KEY = '9ZeoT0NBpD2_nI3im';
+		var EMAILJS_SERVICE_ID = 'service_0nbctgw';
+		var EMAILJS_TEMPLATE_ID = 'template_ehtkvfj';
+
+		// Initialize EmailJS
+		if (typeof emailjs !== 'undefined') {
+			emailjs.init(EMAILJS_PUBLIC_KEY);
+		}
+
 	// Booking Form.
 		var $bookingForm = $('#booking-form'),
 			$locationSelect = $('#booking-location');
@@ -153,9 +164,11 @@
 			$bookingForm.on('submit', function(e) {
 				e.preventDefault();
 
+				var $submitBtn = $(this).find('button[type="submit"]');
+				var originalText = $submitBtn.text();
+
 				var name = $('#booking-name').val().trim();
 				var email = $('#booking-email').val().trim();
-				//var phone = $('#booking-phone').val().trim();
 				var date = $('#booking-date').val();
 				var location = $('#booking-location').val();
 
@@ -175,18 +188,25 @@
 					day: 'numeric'
 				}) : 'Not specified';
 
-				// Build email body
-				var subject = encodeURIComponent('Booking Request from ' + name);
-				var body = encodeURIComponent(
-					'Name: ' + name + '\n' +
-					'Email: ' + email + '\n' +
-					//'Phone: ' + phone + '\n' +
-					'Preferred Date: ' + formattedDate + '\n' +
-					'Location: ' + location
-				);
+				// Disable button and show loading state
+				$submitBtn.prop('disabled', true).text('Sending...');
 
-				// Open mailto link
-				window.location.href = 'mailto:controcanto@proton.me?subject=' + subject + '&body=' + body;
+				// Send email via EmailJS
+				emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+					from_name: name,
+					from_email: email,
+					preferred_date: formattedDate,
+					location: location,
+					to_email: 'controcanto@proton.me'
+				}).then(function() {
+					alert('Booking request sent successfully! We will get back to you soon.');
+					$bookingForm[0].reset();
+				}).catch(function(error) {
+					console.error('EmailJS error:', error);
+					alert('Failed to send booking request. Please try again or email us directly at controcanto@proton.me');
+				}).finally(function() {
+					$submitBtn.prop('disabled', false).text(originalText);
+				});
 			});
 		}
 
