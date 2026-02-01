@@ -211,3 +211,42 @@
 		}
 
 })(jQuery);
+
+// Modal functions (global scope for onclick handlers)
+function openDatesModal() {
+	var modal = document.getElementById('dates-modal');
+	var iframe = document.getElementById('dates-iframe');
+	iframe.src = 'data/dates.pdf';
+	modal.classList.add('active');
+	document.body.style.overflow = 'hidden';
+}
+
+function closeDatesModal() {
+	var modal = document.getElementById('dates-modal');
+	var iframe = document.getElementById('dates-iframe');
+	modal.classList.remove('active');
+	iframe.src = '';
+	document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside content
+document.addEventListener('DOMContentLoaded', function() {
+	var modal = document.getElementById('dates-modal');
+	if (modal) {
+		modal.addEventListener('click', function(e) {
+			if (e.target === modal) {
+				closeDatesModal();
+			}
+		});
+	}
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+	if (e.key === 'Escape') {
+		var modal = document.getElementById('dates-modal');
+		if (modal && modal.classList.contains('active')) {
+			closeDatesModal();
+		}
+	}
+});

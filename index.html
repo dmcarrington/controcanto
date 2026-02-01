@@ -155,7 +155,7 @@
 									</div> -->
 									<div style="flex: 1 1 45%; min-width: 200px; display: flex; gap: 1em; align-items: center;">
 										<input type="date" name="date" id="booking-date" required style="flex: 1; height: 2.75em; padding: 0 1em; background: rgba(144,144,144,0.25); border: none; border-radius: 3px; color: #fff;" />
-										<a href="https://drive.proton.me/urls/90381D52HC#7MpfmGP2IV3b" id="dates-pdf-link" class="button small" target="_blank">View Dates</a>
+										<a href="#" id="dates-pdf-link" class="button small" onclick="openDatesModal(); return false;">View Dates</a>
 									</div>
 									<div style="flex: 1 1 100%;">
 										<select name="location" id="booking-location" required style="width: 100%; height: 2.75em; padding: 0 1em; background: rgba(144,144,144,0.25); border: none; border-radius: 3px; color: #fff;">
@@ -173,6 +173,16 @@
 							</form>
 						</div>
 					</section>
+
+				<!-- Dates Modal -->
+					<div id="dates-modal" class="modal">
+						<div class="modal-content">
+							<span class="modal-close" onclick="closeDatesModal()">&times;</span>
+							<h2>Available Dates</h2>
+							<iframe id="dates-iframe" src="" frameborder="0"></iframe>
+							<p class="modal-fallback">If the document doesn't load, <a href="data/dates.pdf" target="_blank">click here to open in a new tab</a>.</p>
+						</div>
+					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
