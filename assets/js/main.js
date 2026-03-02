@@ -124,6 +124,27 @@
 				var slideIndex = $(this).data('slide');
 				goToSlide(slideIndex);
 			});
+
+			// Touch swipe support.
+			var touchStartX = 0;
+			var touchEndX = 0;
+			var swipeThreshold = 50;
+
+			$carousel[0].addEventListener('touchstart', function(e) {
+				touchStartX = e.changedTouches[0].screenX;
+			}, { passive: true });
+
+			$carousel[0].addEventListener('touchend', function(e) {
+				touchEndX = e.changedTouches[0].screenX;
+				var diff = touchStartX - touchEndX;
+				if (Math.abs(diff) > swipeThreshold) {
+					if (diff > 0) {
+						nextSlide();
+					} else {
+						prevSlide();
+					}
+				}
+			});
 		}
 
 	// EmailJS Configuration
