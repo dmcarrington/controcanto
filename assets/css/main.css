@@ -2639,7 +2639,7 @@ input, select, textarea {
 
 				.features > li {
 					padding: 3em 2em 1em 2em ;
-					text-align: center;
+					text-align: left;
 				}
 
 					.features > li:before {
@@ -2654,7 +2654,7 @@ input, select, textarea {
 			@media screen and (max-width: 736px) {
 
 				.features > li {
-					padding: 3em 0 1em 0 ;
+					padding: 3em 1.5em 1em 1.5em ;
 					background-color: transparent !important;
 					border-top: solid 2px #fff;
 					width: 100%;
