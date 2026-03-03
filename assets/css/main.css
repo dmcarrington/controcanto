@@ -3667,6 +3667,13 @@ input, select, textarea {
 				right: 0;
 			}
 
+		#banner h1 {
+			letter-spacing: 0.225em;
+			text-transform: uppercase;
+			font-size: 1em;
+			font-weight: normal;
+		}
+
 		#banner p {
 			letter-spacing: 0.225em;
 			text-transform: uppercase;
