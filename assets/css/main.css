@@ -2141,7 +2141,7 @@ button:disabled,
   max-height: none;
 }
 .features > li.collapsible .read-more-toggle {
-  color: #21b2a6;
+  color: #61c899;
   cursor: pointer;
   border: none;
   outline: none;
