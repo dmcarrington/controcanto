@@ -188,6 +188,7 @@ h3 {
 h4 {
   font-size: 1em;
   line-height: 1.5em;
+  color: #61c899;
 }
 
 h5 {
@@ -2131,6 +2132,38 @@ button:disabled,
 .features > li:nth-last-child(2) {
   border-bottom-left-radius: 3px;
 }
+.features > li.collapsible .collapsible-content {
+  position: relative;
+  overflow: hidden;
+  max-height: 11.55em;
+}
+.features > li.collapsible.is-expanded .collapsible-content {
+  max-height: none;
+}
+.features > li.collapsible .read-more-toggle {
+  color: #21b2a6;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+  max-width: none;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline;
+}
+.features > li.collapsible .read-more-toggle:hover {
+  text-decoration: underline;
+}
+.features > li.collapsible .read-more-toggle:focus {
+  outline: none;
+}
 @media screen and (max-width: 980px) {
   .features > li {
     padding: 3em 2em 1em 2em;
@@ -3617,4 +3650,4 @@ body.is-mobile.landing #footer {
   }
 }
 
-/*# sourceMappingURL=sass-new.css.map */
+/*# sourceMappingURL=main.css.map */

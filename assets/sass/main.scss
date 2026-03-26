@@ -208,6 +208,7 @@
 	h4 {
 		font-size: 1em;
 		line-height: 1.5em;
+		color: #61c899;
 	}
 
 	h5 {
@@ -1034,6 +1035,46 @@
 
 			&:nth-last-child(2) {
 				border-bottom-left-radius: 3px;
+			}
+
+			// Collapsible feature items
+			&.collapsible {
+				.collapsible-content {
+					position: relative;
+					overflow: hidden;
+					max-height: 11.55em; // 7 lines × 1.65 line-height
+				}
+
+				&.is-expanded .collapsible-content {
+					max-height: none;
+				}
+
+				.read-more-toggle {
+					color: _palette(accent1, bg);
+					cursor: pointer;
+					border: none;
+					outline: none;
+					background: transparent;
+					box-shadow: none;
+					padding: 0;
+					height: auto;
+					max-width: none;
+					font-size: inherit;
+					font-weight: inherit;
+					font-family: inherit;
+					line-height: inherit;
+					letter-spacing: normal;
+					text-transform: none;
+					display: inline;
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					&:focus {
+						outline: none;
+					}
+				}
 			}
 
 			@include breakpoint('<=medium') {

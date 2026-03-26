@@ -124,7 +124,7 @@ One member of our team will contact you to arrange the session in an available R
 									</div>
 									<div class="form-field form-field-date">
 										<input type="date" name="date" id="booking-date" required />
-										<a href="#" id="dates-pdf-link" class="button small" onclick="openDatesModal(); return false;">View Dates</a>
+										<!--<a href="#" id="dates-pdf-link" class="button small" onclick="openDatesModal(); return false;">View Dates</a> -->
 									</div>
 									<div class="form-field form-field-full">
 										<select name="location" id="booking-location" required>
@@ -133,6 +133,7 @@ One member of our team will contact you to arrange the session in an available R
 											<option value="Chester">Chester</option>
 											<option value="Warrington">Warrington</option>
 											<option value="Preston">Preston</option>
+											<option value="London">London</option>
 										</select>
 									</div>
 									<div class="form-field form-field-full form-submit">
@@ -145,14 +146,66 @@ One member of our team will contact you to arrange the session in an available R
 
 				<div class="inner">
 					<ul class="features">
-						<li class="icon fa-paper-plane">
+						<li class="icon fa-paper-plane collapsible">
 							<h3>Why Self Custody?</h3>
-							<p>Third party exchanges are a risk, exposing your Bitcoin to theft, confiscation, and loss. Mastering self custody is vital for keeping sovereign control over your funds.</p>
+							<p>The core idea is captured in the phrase "Not your keys, not your coins" — if you don't control the private keys, you don't truly own the Bitcoin. 
+
+
+							<h4>1. True Ownership and Sovereignty</h4>
+							<p>Bitcoin was designed as a decentralized, permissionless system where you can be your own bank. When you self-custody, you alone decide when, how, and to whom you send your Bitcoin — no one can freeze, block, or restrict your access. Exchanges or custodians can impose withdrawal limits, account freezes, or downtime. With self-custody, your funds are available 24/7, anywhere in the world, without permission.
+
+							This aligns with Bitcoin's foundational promise of financial independence and censorship resistance. No government, bank, or company can unilaterally seize or control your wealth if you hold the keys.</p>
+							<h4>2. Elimination of Counterparty Risk</h4>
+							</p>Leaving Bitcoin on an exchange means you're exposed to the platform's failures. History is full of examples:
+							<ul>
+								<li>Mt. Gox (2014): Lost ~850,000 BTC due to hacks and mismanagement; users waited years for partial recoveries (often pennies on the dollar relative to today's value).</li>
+								<li>FTX (2022): Collapse wiped out billions in customer funds due to fraud and mismanagement; users faced frozen withdrawals during a bull market and lengthy bankruptcy proceedings.</li>
+								<li>Other cases like QuadrigaCX show how even "trusted" custodians can fail due to death, fraud, or insolvency.</li>
+							</ul>
+
+							Exchanges often don't hold 1:1 reserves for all deposits (your account balance is just a database entry, not proven on-chain ownership). Self-custody removes this trust entirely — your Bitcoin is secured by cryptography, not a company's promises or balance sheet.</p>
+
+
+						<h4>3. Protection from Hacks and Centralized Vulnerabilities</h4>
+							<p>Exchanges are massive "honey pots" — attractive targets for hackers because they centralize large amounts of Bitcoin. Self-custody, especially with a hardware wallet kept offline (cold storage), drastically reduces remote attack surfaces. Your keys never touch the internet unless you choose to transact. Professional exchange security teams have failed repeatedly; your own well-secured setup (with proper backups and practices) can be far more robust for long-term holding.</p>
+
+
+						<h4>4. Privacy</h4>
+							<p></p>Exchanges require personal information (KYC) and track all your activity, which can be shared with governments or leaked. Self-custody lets you interact directly on the blockchain with minimal third-party involvement, preserving greater financial privacy. Transactions don't route through a company's databases that could profile or expose you.</p>
+
+
+						<h4>5. Censorship Resistance and Freedom from External Control</h4>
+							<p>In uncertain times, governments or regulators can pressure centralized entities to freeze assets, comply with sanctions, or restrict access based on location, politics, or policy changes. Self-custodied Bitcoin can't be easily confiscated without physical access to your keys or seed phrase. It empowers individuals in authoritarian regimes or during financial crises to protect their savings independently.</p>
+
+
+						<h4>6. Alignment with Bitcoin's Philosophy and Long-Term Learning</h4>
+							<p>Self-custody forces you to understand Bitcoin's mechanics (keys, seeds, backups, verification on the blockchain), deepening your knowledge of why it works as sound money. It reinforces the decentralized ethos: if few people self-custody, Bitcoin risks resembling the fiat system it aims to improve. Practically, it also aids estate planning with proper multisig or inheritance setups, though this requires care.</p>
+
+						<h4>Important Caveats</h4>
+							<p></p>Self-custody isn't risk-free — the biggest danger is user error (losing your seed phrase, sending to the wrong address, or poor security practices), which can lead to permanent loss with no recovery option (estimates suggest ~20% of all Bitcoin is already inaccessible for similar reasons). It requires responsibility: use reputable hardware wallets, practice secure backups, test small amounts first, and consider multisig for larger holdings.For small amounts or frequent trading, exchanges offer convenience. But for meaningful savings or long-term holding, self-custody is the most reliable way to ensure your Bitcoin remains yours. Many in the Bitcoin community treat it as non-negotiable for true ownership. Let us help you educate yourself, and take control — it's one of Bitcoin's most empowering features.</p>
 						</li>
-						<li class="icon solid fa-laptop">
+						<li class="icon solid fa-laptop collapsible">
 							<h3>Hardware Requirements</h3>
-							<p>Please bring a standard laptop, excluding Apple one. Do NOT bring a MacBook or a tablet.</p>
+							<p>Please bring your own laptop. Most Windows or Linux laptops will be suitable, but not MacBooks.</p>
+							<h4>Minimum Requirements</h4>
+							<ul>
+							<li><h5>Processor (CPU):</h5>
+							<p>A 64-bit x86-64 (amd64) compatible processor on an IBM PC compatible system.
+							This includes most Intel and AMD CPUs from the last 10–15 years.</p>
+							<i class="fa fa-exclamation-triangle" style="color: #ed4933;"></i> Not supported:
+							<ul>  
+							<li>32-bit processors (dropped since Tails 3.0 in 2017) </li> 
+							<li>ARM architecture (e.g., most Raspberry Pi, many tablets/phones)  </li>
+							<li>PowerPC  </li>
+							<li>Apple Silicon (M1, M2, M3, M4, etc.) chips — only older Intel-based Macs (generally from 2006 onward) are compatible.</li>
+							</ul>
+							<li><h5>RAM (Memory):</h5>
+							At least 4 GB for smooth operation.
+							</li>
+
+							</ul>
 						</li>
+
 						<li class="icon solid fa-code">
 							<h3>Learning program</h3>
 							<p>All you need to know to hold bitcoin with privacy and security  in just 8 modules:</p>
@@ -166,17 +219,28 @@ One member of our team will contact you to arrange the session in an available R
 								<li>Metallic Backup</li>
 								<li>Buy Bitcoin P2P</li>
 							</ol>
-						</li>
-						<li class="icon solid fa-headphones-alt">
-							<h3>This will give you the basic skills to protect your funds against:</h3>
-							<p>
-								<ul>
+							<p>This will give you the basic skills to protect your funds against:</p>
+							<ul>
 									<li>Confiscation</li>
 									<li>Remote attacks</li>
 									<li>Physical attacks</li>
 									<li>Yourself (protection against own mistakes)</li>
-								</ul>
-							</p>
+							</ul>
+
+						</li>
+						<li class="icon solid fa-headphones-alt">
+							<h3>Our mission is bitcoin education:</h3>
+							<p>While our training program is an investment, it will help you save significant amount of time and mistakes that can compromise your funds, privacy and your security.  Alternatively free on your own. Here is a very helpful list of resources every bitcoiner can use t:</p>
+							<ul>
+								<li><a href="https://www.bitcoin.org" target="_blank">Bitcoin.org</a></li>
+								<li><a href="https://learnmeabitcoin.com" target="_blank">Learn Me A Bitcoin</a></li>
+								<li><a href="https://coldcard.com" target="_blank">Coldcard</a></li>
+								<li><a href="https://sparrowwallet.com" target="_blank">Sparrow Wallet</a></li>
+								<li><a href="https://www.btcsessions.ca/" target="_blank">BTC Sessions</a></li>
+								<li><a href="https://lianawallet.com/" target="_blank">Liana Wallet</a></li>
+								<li><a href="https://bridge2bitcoin.com" target="_blank">Bridge 2 Bitcoin</a></li>
+							</ul>
+							If you find out that you get value with any of the above resources, please do not forget to tip for the free content. It helps people to carry on educating more people around the world.
 						</li>
 						<li class="icon fa-heart">
 							<h3>Provided Materials</h3>

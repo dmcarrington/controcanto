@@ -233,6 +233,50 @@
 
 })(jQuery);
 
+// Collapsible feature items — wraps content after the h3 and adds a toggle button
+function initCollapsibles() {
+	var items = document.querySelectorAll('.features .collapsible');
+	for (var i = 0; i < items.length; i++) {
+		var li = items[i];
+		var h3 = li.querySelector('h3');
+		if (!h3) continue;
+
+		// Collect all sibling nodes after the h3
+		var nodes = [];
+		var node = h3.nextSibling;
+		while (node) {
+			nodes.push(node);
+			node = node.nextSibling;
+		}
+
+		// Wrap them in a collapsible-content div
+		var wrapper = document.createElement('div');
+		wrapper.className = 'collapsible-content';
+		for (var j = 0; j < nodes.length; j++) {
+			wrapper.appendChild(nodes[j]);
+		}
+		li.appendChild(wrapper);
+
+		// Add the toggle button after the wrapper
+		var btn = document.createElement('button');
+		btn.className = 'read-more-toggle';
+		btn.textContent = 'Read More';
+		btn.addEventListener('click', function() {
+			var parent = this.parentElement;
+			if (parent.classList.contains('is-expanded')) {
+				parent.classList.remove('is-expanded');
+				this.textContent = 'Read More';
+			} else {
+				parent.classList.add('is-expanded');
+				this.textContent = 'Read Less';
+			}
+		});
+		li.appendChild(btn);
+	}
+}
+
+document.addEventListener('DOMContentLoaded', initCollapsibles);
+
 // Modal functions (global scope for onclick handlers)
 function openDatesModal() {
 	var modal = document.getElementById('dates-modal');
