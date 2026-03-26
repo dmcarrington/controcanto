@@ -3515,10 +3515,31 @@ body.is-mobile.landing #footer {
   display: flex;
   gap: 1em;
   align-items: center;
+  position: relative;
 }
 
-.form-field-date input[type=date] {
+.date-picker-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#booking-date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+#booking-date-display {
   flex: 1;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9em;
 }
 
 .form-field-full {
@@ -3532,7 +3553,6 @@ body.is-mobile.landing #footer {
 
 .booking-form input[type=text],
 .booking-form input[type=email],
-.booking-form input[type=date],
 .booking-form select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3560,11 +3580,10 @@ body.is-mobile.landing #footer {
     flex: 1 1 100%;
   }
   .form-field-date {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
   }
   .form-field-date .button {
-    width: 100%;
     text-align: center;
   }
 }

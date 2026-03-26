@@ -123,8 +123,11 @@ One member of our team will contact you to arrange the session in an available R
 										<input type="email" name="email" id="booking-email" placeholder="Email" required />
 									</div>
 									<div class="form-field form-field-date">
-										<input type="text" name="date" id="booking-date" placeholder="Preferred Date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required />
-										<!--<a href="#" id="dates-pdf-link" class="button small" onclick="openDatesModal(); return false;">View Dates</a> -->
+										<span id="booking-date-display">No date selected</span>
+										<span class="date-picker-wrapper">
+											<input type="date" name="date" id="booking-date" required />
+											<span class="button small" onclick="document.getElementById('booking-date').showPicker()">Pick a Date</span>
+										</span>
 									</div>
 									<div class="form-field form-field-full">
 										<select name="location" id="booking-location" required>

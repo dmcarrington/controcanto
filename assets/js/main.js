@@ -158,6 +158,19 @@
 			emailjs.init(EMAILJS_PUBLIC_KEY);
 		}
 
+	// Date picker display.
+		$('#booking-date').on('change', function() {
+			var val = $(this).val();
+			if (val) {
+				var d = new Date(val);
+				$('#booking-date-display').text(d.toLocaleDateString('en-GB', {
+					weekday: 'short', day: 'numeric', month: 'long', year: 'numeric'
+				}));
+			} else {
+				$('#booking-date-display').text('No date selected');
+			}
+		});
+
 	// Booking Form.
 		var $bookingForm = $('#booking-form'),
 			$locationSelect = $('#booking-location');

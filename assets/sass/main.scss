@@ -2258,10 +2258,31 @@
 		display: flex;
 		gap: 1em;
 		align-items: center;
+		position: relative;
 	}
 
-	.form-field-date input[type="date"] {
+	.date-picker-wrapper {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	#booking-date {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+		padding: 0;
+		border: 0;
+		clip: rect(0,0,0,0);
+	}
+
+	#booking-date-display {
 		flex: 1;
+		color: _palette(fg-light);
+		font-size: 0.9em;
 	}
 
 	.form-field-full {
@@ -2275,7 +2296,6 @@
 
 	.booking-form input[type="text"],
 	.booking-form input[type="email"],
-	.booking-form input[type="date"],
 	.booking-form select {
 		@include vendor('appearance', 'none');
 		background-color: _palette(border-bg);
@@ -2301,12 +2321,11 @@
 		}
 
 		.form-field-date {
-			flex-direction: column;
-			align-items: stretch;
+			flex-direction: row;
+			align-items: center;
 		}
 
 		.form-field-date .button {
-			width: 100%;
 			text-align: center;
 		}
 	}
