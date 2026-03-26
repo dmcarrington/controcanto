@@ -117,13 +117,13 @@ One member of our team will contact you to arrange the session in an available R
 							<form id="booking-form" class="booking-form">
 								<div class="form-grid">
 									<div class="form-field">
-										<input type="text" name="name" id="booking-name" placeholder="Name" required />
+										<input type="text" name="name" id="booking-name" placeholder="Name (or Alias)" required />
 									</div>
 									<div class="form-field">
 										<input type="email" name="email" id="booking-email" placeholder="Email" required />
 									</div>
 									<div class="form-field form-field-date">
-										<input type="date" name="date" id="booking-date" required />
+										<input type="text" name="date" id="booking-date" placeholder="Preferred Date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required />
 										<!--<a href="#" id="dates-pdf-link" class="button small" onclick="openDatesModal(); return false;">View Dates</a> -->
 									</div>
 									<div class="form-field form-field-full">
