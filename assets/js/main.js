@@ -233,7 +233,7 @@
 					location: location,
 					to_email: 'controcanto@proton.me'
 				}).then(function() {
-					alert('Booking request sent successfully! We will get back to you soon.');
+					alert('Thank you for your booking request! We will get back to you within 24 hours.');
 					$bookingForm[0].reset();
 				}).catch(function(error) {
 					console.error('EmailJS error:', error);
