@@ -1089,7 +1089,6 @@
 
 			@include breakpoint('<=small') {
 				@include padding(3em, 1.5em);
-				background-color: transparent !important;
 				border-top: solid 2px _palette(border);
 				width: 100%;
 
